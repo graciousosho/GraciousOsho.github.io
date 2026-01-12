@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gracious Osho - Portfolio CV</title>
+<style>
+/* Body & Animated Background */
+body { 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    margin:0; padding:0; 
+    background: linear-gradient(-45deg, #0f172a, #1e293b, #0f172a, #1e293b); 
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    color:#e0e0e0;
+}
+@keyframes gradientBG {
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+/* Container */
+.container { 
+    max-width: 950px; 
+    margin: 40px auto; 
+    padding: 30px; 
+}
+
+/* Header */
+.header {
+    text-align:center; 
+    padding:50px; 
+    border-radius:15px; 
+    background: rgba(31, 41, 55, 0.95);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.header:hover {
+    transform: scale(1.02);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+}
+.header h1 { 
+    margin:10px 0; 
+    font-size:3em; 
+    color:#8b5cf6;
+    text-shadow: 1px 1px 8px #f472b6;
+}
+.header p { 
+    font-size:1.1em; 
+    color:#cbd5e1;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+.header p:hover { 
+    color:#f472b6; 
+    text-shadow: 1px 1px 5px #38bdf8;
+}
+
+/* Sections */
+.section { 
+    background: rgba(31, 41, 55, 0.85); 
+    padding:30px; 
+    border-radius:15px; 
+    margin-top:25px;
+    transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+}
+.section:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.6);
+    background: rgba(55, 65, 81, 0.95);
+}
+.section h2 { 
+    color:#8b5cf6; 
+    border-bottom:2px solid #8b5cf6; 
+    padding-bottom:5px; 
+    text-shadow: 1px 1px 4px #f472b6;
+}
+
+/* Lists */
+ul { list-style:none; padding-left:0; }
+li { margin-bottom:10px; }
+
+/* Links */
+a { 
+    color:#38bdf8; 
+    text-decoration:none; 
+    transition: color 0.3s, text-shadow 0.3s;
+}
+a:hover { 
+    color:#f472b6; 
+    text-shadow: 0 0 10px #f472b6;
+}
+
+/* Skill Bars */
+.skill-bar { 
+    background:#2c2c3a; 
+    border-radius:10px; 
+    overflow:hidden; 
+    margin:8px 0; 
+}
+.skill-fill { 
+    height:12px; 
+    border-radius:10px; 
+    width:0%; 
+    background: linear-gradient(90deg, #8b5cf6, #f472b6, #38bdf8, #8b5cf6);
+    background-size: 300% 300%;
+    animation: moveGradient 3s linear infinite;
+}
+@keyframes moveGradient {
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+/* Footer / Contact */
+.contact p { margin:5px 0; }
+
+</style>
+<script>
+// Animate skill bars on load
+window.onload = function() {
+    var fills = document.querySelectorAll('.skill-fill');
+    fills.forEach(function(fill){
+        fill.style.width = fill.getAttribute('data-skill');
+    });
+}
+</script>
+</head>
+<body>
+
+<div class="container">
+
+<!-- Header -->
+<div class="header">
+    <h1>Gracious Osho</h1>
+    <p>Computer Engineer | Web & Cybersecurity | IT & Digital Solutions</p>
+    <p>Email: graciousosho@gmail.com | Phone: +233537639529</p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/graciousosh">www.linkedin.com/in/graciousosh</a> | GitHub: <a href="#">link</a></p>
+</div>
+
+<!-- Summary -->
+<div class="section">
+<h2>Summary</h2>
+<p>Highly motivated Computer Engineer with expertise in Python, JavaScript, SQL, React, and cybersecurity. Over four years of experience in problem-solving, project management, and delivering impactful results. Committed to learning and eager to contribute to innovative projects.</p>
+</div>
+
+<!-- Skills -->
+<div class="section">
+<h2>Skills</h2>
+<p>Technical Skills:</p>
+<p>Python & SQL</p>
+<div class="skill-bar"><div class="skill-fill" data-skill="90%"></div></div>
+<p>React & Web Development</p>
+<div class="skill-bar"><div class="skill-fill" data-skill="85%"></div></div>
+<p>Cybersecurity & Network Security</p>
+<div class="skill-bar"><div class="skill-fill" data-skill="80%"></div></div>
+
+<p>Soft Skills:</p>
+<ul>
+<li>Project Management & Leadership</li>
+<li>Problem Solving & Analytical Thinking</li>
+<li>Creativity, Multitasking & Organization</li>
+<li>Technical Documentation & Communication</li>
+</ul>
+</div>
+
+<!-- Projects -->
+<div class="section">
+<h2>Projects</h2>
+<ul>
+<li>To be updated – developing hands-on projects in Python, React, and cybersecurity.</li>
+</ul>
+</div>
+
+<!-- Experience -->
+<div class="section">
+<h2>Experience</h2>
+<div class="section">
+<strong>Founder & Lead Programmer</strong> - CodeLiners Club, Abeokuta, Nigeria | 01/2021 - Present
+<ul>
+<li>Founded and led a programming club for young developers in Python, JS, HTML, CSS, SQL, React.</li>
+<li>Mentored peers and organized workshops, tutorials, and hackathons.</li>
+<li>Developed personal and group projects focused on real-time applications and databases.</li>
+</ul>
+</div>
+
+<div class="section">
+<strong>Intern</strong> - Korangtech IT Company, Accra, Ghana | 05/2024 - 09/2024
+<ul>
+<li>Installed & configured Hikvision security systems and wired/wireless intruder alarms.</li>
+<li>Set up facial recognition access control with magnetic locks and exit buttons.</li>
+<li>Maintained IoT-based security solutions for real-time detection.</li>
+</ul>
+</div>
+</div>
+
+<!-- Education -->
+<div class="section">
+<h2>Education</h2>
+<ul>
+<li>BSc Computer Engineering (Expected 09/2028) - Accra Institute of Technology, Ghana</li>
+<li>A Level Certification, Mathematics & Physics (06/2022) - African Science Academy, Ghana</li>
+</ul>
+</div>
+
+<!-- Certifications -->
+<div class="section">
+<h2>Certifications</h2>
+<ul>
+<li>CyberOps Associate – Cisco Networking Academy</li>
+<li>PCAP: Programming Essentials in Python – Cisco Networking Academy & OpenEDG Python Institute</li>
+</ul>
+</div>
+
+<!-- Volunteer -->
+<div class="section">
+<h2>Volunteer / Community Work</h2>
+<ul>
+<li>Digital literacy training and STEM mentorship for youth</li>
+<li>Web & IT support for community/faith-based organizations</li>
+<li>Organized coding workshops and hackathons</li>
+</ul>
+</div>
+
+<!-- Portfolio & Profiles -->
+<div class="section">
+<h2>Portfolio & Profiles</h2>
+<p>LinkedIn: <a href="https://www.linkedin.com/in/graciousosh">https://www.linkedin.com/in/graciousosh</a></p>
+</div>
+
+</div>
+</body>
+</html>
