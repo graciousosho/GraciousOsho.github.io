@@ -5,29 +5,35 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gracious Osho - Portfolio CV</title>
 <style>
-/* ---------- Fonts & Base ---------- */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin:0; padding:0;
-    background: linear-gradient(to right, #0f172a, #1e293b);
+/* ---------- Body & Animated Gradient ---------- */
+body { 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    margin:0; 
+    padding:0; 
+    background: linear-gradient(-45deg, #0f172a, #1e293b, #0f172a, #1e293b); 
+    background-size: 400% 400%;
+    animation: gradientBG 20s ease infinite;
     color:#e0e0e0;
-    line-height:1.6;
+}
+@keyframes gradientBG {
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
 }
 
 /* ---------- Container ---------- */
-.container {
-    max-width: 950px;
-    margin: 40px auto;
-    padding: 30px;
+.container { 
+    max-width: 1000px; 
+    margin: 40px auto; 
+    padding: 20px; 
 }
 
 /* ---------- Header ---------- */
 .header {
-    text-align:center;
-    padding:50px;
-    border-radius:15px;
-    background: linear-gradient(135deg, #8b5cf6, #38bdf8);
-    color:white;
+    text-align:center; 
+    padding:40px; 
+    border-radius:15px; 
+    background: rgba(31, 41, 55, 0.95);
     box-shadow: 0 10px 25px rgba(0,0,0,0.5);
     transition: transform 0.3s, box-shadow 0.3s;
 }
@@ -35,77 +41,83 @@ body {
     transform: scale(1.02);
     box-shadow: 0 15px 35px rgba(0,0,0,0.6);
 }
-.header h1 {
-    margin:10px 0;
-    font-size:3em;
+.header h1 { 
+    margin:10px 0; 
+    font-size:3em; 
+    background: linear-gradient(90deg, #8b5cf6, #f472b6, #38bdf8, #facc15, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
-.header p {
-    font-size:1.1em;
-    margin:5px 0;
+.header p { 
+    font-size:1.1em; 
+    color:#cbd5e1;
+    transition: color 0.3s, text-shadow 0.3s;
 }
+.header p:hover { 
+    color:#f472b6; 
+    text-shadow: 1px 1px 5px #38bdf8;
+}
+.header a { color:#38bdf8; text-decoration:none; }
+.header a:hover { color:#f472b6; text-shadow: 0 0 5px #f472b6; }
 
 /* ---------- Sections ---------- */
-.section {
-    background: rgba(31,41,55,0.9);
-    padding:25px;
-    border-radius:15px;
+.section { 
+    background: rgba(31, 41, 55, 0.85); 
+    padding:30px; 
+    border-radius:15px; 
     margin-top:25px;
-    transition: transform 0.3s, background 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
 }
 .section:hover {
     transform: translateY(-5px);
-    background: rgba(55,65,81,0.95);
+    box-shadow: 0 15px 25px rgba(0,0,0,0.5);
+    background: rgba(55, 65, 81, 0.95);
 }
-.section h2 {
-    color:#8b5cf6;
-    border-bottom:2px solid #8b5cf6;
-    padding-bottom:5px;
+.section h2 { 
+    color:#8b5cf6; 
+    border-bottom:2px solid #8b5cf6; 
+    padding-bottom:5px; 
     text-shadow: 1px 1px 4px #f472b6;
 }
 
 /* ---------- Lists ---------- */
 ul { list-style:none; padding-left:0; }
-li { margin-bottom:8px; }
+li { margin-bottom:10px; }
 
-/* ---------- Links ---------- */
-a {
-    color:#38bdf8;
-    text-decoration:none;
-    transition: color 0.3s, text-shadow 0.3s;
+/* ---------- Skill Bars ---------- */
+.skill-bar { 
+    background:#2c2c3a; 
+    border-radius:10px; 
+    overflow:hidden; 
+    margin:8px 0; 
 }
-a:hover {
-    color:#f472b6;
-    text-shadow: 0 0 8px #f472b6;
-}
-
-/* ---------- Skills ---------- */
-.skill-bar {
-    background:#2c2c3a;
-    border-radius:10px;
-    overflow:hidden;
-    margin:8px 0;
-}
-.skill-fill {
-    height:12px;
-    border-radius:10px;
-    width:0%;
-    background: linear-gradient(90deg, #8b5cf6, #f472b6, #38bdf8, #8b5cf6);
+.skill-fill { 
+    height:14px; 
+    border-radius:10px; 
+    width:0%; 
+    background: linear-gradient(90deg, #8b5cf6, #f472b6, #38bdf8, #facc15, #8b5cf6);
     background-size: 300% 300%;
-    animation: moveGradient 3s linear infinite;
+    animation: moveGradient 4s linear infinite;
 }
 @keyframes moveGradient {
     0%{background-position:0% 50%;}
     50%{background-position:100% 50%;}
     100%{background-position:0% 50%;}
 }
+
+/* ---------- Links ---------- */
+a { color:#38bdf8; text-decoration:none; transition: color 0.3s; }
+a:hover { color:#f472b6; text-shadow: 0 0 8px #f472b6; }
+
+/* ---------- Footer ---------- */
+.contact p { margin:5px 0; }
+
 </style>
 <script>
 // Animate skill bars on load
 window.onload = function() {
-    var fills = document.querySelectorAll('.skill-fill');
-    fills.forEach(function(fill){
-        fill.style.width = fill.getAttribute('data-skill');
-    });
+    const fills = document.querySelectorAll('.skill-fill');
+    fills.forEach(fill => fill.style.width = fill.getAttribute('data-skill'));
 }
 </script>
 </head>
@@ -130,46 +142,53 @@ window.onload = function() {
 <!-- Skills -->
 <div class="section">
 <h2>Skills</h2>
-<p><strong>Technical:</strong> Python, JavaScript, HTML/CSS, React </p>
+<p>Technical:</p>
+<p>Python, JavaScript, HTML/CSS, React, SQL</p>
 <div class="skill-bar"><div class="skill-fill" data-skill="90%"></div></div>
-<p><strong>Cybersecurity & Networks:</strong> Cybersecurity, Network Security, IoT Security, Threat Management</p>
+<p>Cybersecurity & Networks:</p>
+<p>Cybersecurity, Network Security, IoT Security, Threat Management</p>
 <div class="skill-bar"><div class="skill-fill" data-skill="85%"></div></div>
-<p><strong>Multimedia:</strong> Graphic Design, Adobe Suite (Photoshop), Canva</p>
+<p>Multimedia:</p>
+<p>Graphic Design, Adobe Suite (Photoshop), Canva</p>
 <div class="skill-bar"><div class="skill-fill" data-skill="80%"></div></div>
-<p><strong>Professional:</strong> Project Leadership, Mentorship, Problem-Solving, Technical Documentation</p>
-<div class="skill-bar"><div class="skill-fill" data-skill="75%"></div></div>
+<p>Professional:</p>
+<ul>
+<li>Project Leadership & Mentorship</li>
+<li>Problem Solving & Analytical Thinking</li>
+<li>Creativity, Multitasking & Organization</li>
+<li>Technical Documentation & Communication</li>
+</ul>
 </div>
 
 <!-- Experience -->
 <div class="section">
 <h2>Experience</h2>
-
 <div class="section">
-<strong>President</strong> – Code-Liners Club, African Church Grammar School, Abeokuta, Nigeria | Sep 2018 – Sep 2020
+<strong>President – Code-Liners Club</strong>, African Church Grammar School, Abeokuta, Nigeria | Sep 2018 – Sep 2020
 <ul>
-<li>Led a student programming club, organizing workshops and coding sessions.</li>
-<li>Focused on Scratch programming, guiding members through creative games and interactive projects.</li>
-<li>Mentored students in coding principles, problem-solving, and project development.</li>
-<li>Encouraged teamwork, logical thinking, and confidence in programming.</li>
-<li><em>Note: Experience-based leadership; no formal certification.</em></li>
+<li>Led a student programming club, organizing workshops and coding sessions focused on Scratch programming.</li>
+<li>Mentored fellow students in coding principles, problem-solving, and project development.</li>
+<li>Encouraged teamwork, logical thinking, and confidence in programming among peers.</li>
+<li><em>Experience-based leadership; no formal certification.</em></li>
 </ul>
 </div>
 
 <div class="section">
-<strong>IT & Security Intern</strong> – Korangtech IT Security Solutions (Hikvision Partner), Accra, Ghana | May 2024 – Sep 2024
+<strong>IT & Security Intern</strong>, Korangtech IT Security Solutions (Hikvision Partner), Accra, Ghana | May 2024 – Sep 2024
 <ul>
 <li>Installed, configured, and maintained Hikvision Pro security systems, including facial recognition and intruder alarms.</li>
 <li>Integrated IoT-based security solutions with networks, power systems, and magnetic locks.</li>
 <li>Performed troubleshooting and ensured secure, reliable performance of interconnected hardware and software systems.</li>
 </ul>
 </div>
+</div>
 
 <!-- Projects -->
 <div class="section">
 <h2>Projects</h2>
 <ul>
-<li><strong>IoT Security Simulator (Python)</strong> – 2025–Ongoing: Python tool simulating IoT vulnerabilities, detecting attacks, and testing mitigations. <a href="https://github.com/GraciousOsho/IoT-Door-Simulator" target="_blank">GitHub</a></li>
-<li><strong>Empowerment Platform for People with Disabilities – "I Am Who I Am"</strong> – 2022: Advocacy website promoting inclusion and empowerment. Live at <a href="https://site-i-am-who-i-am100.mystrikingly.com/" target="_blank">site-i-am-who-i-am100.mystrikingly.com</a></li>
+<li><strong>IoT Security Simulator (Python)</strong> – 2025–Ongoing: Simulates IoT vulnerabilities, detects attacks, and tests mitigations. <a href="https://github.com/GraciousOsho/IoT-Door-Simulator" target="_blank">GitHub</a></li>
+<li><strong>Empowerment Platform – "I Am Who I Am"</strong> – 2022: Advocacy website promoting inclusion and empowerment. Live at <a href="https://site-i-am-who-i-am100.mystrikingly.com/" target="_blank">site-i-am-who-i-am100.mystrikingly.com</a></li>
 </ul>
 </div>
 
@@ -178,7 +197,7 @@ window.onload = function() {
 <h2>Education</h2>
 <ul>
 <li>BEng Computer Engineering – Accra Institute of Technology, Ghana | Expected May 2027</li>
-<li>A-Level Certification (Mathematics & Physics) – African Science Academy, Ghana | Jun 2022</li>
+<li>A-Level Certification, Mathematics & Physics – African Science Academy, Ghana | Jun 2022</li>
 <li>Secondary Education – African Church Grammar School, Abeokuta, Nigeria | Sep 2015 – Sep 2021 | WAEC/O'Level Certificate</li>
 </ul>
 </div>
@@ -202,19 +221,13 @@ window.onload = function() {
 <h2>Volunteer / Community Work</h2>
 <ul>
 <li>Delivered digital literacy and STEM mentorship to youth</li>
-<li>Provided web/IT support for community and faith-based organizations</li>
-<li>Volunteered as a Graphic Designer for OneNess Foundation Hub programs</li>
+<li>Provided web & IT support for community and faith-based organizations</li>
+<li>Volunteered as a Graphic Designer for OneNess Foundation Hub, creating visuals for programs</li>
 <li>Organized coding workshops and hackathons</li>
 </ul>
 </div>
 
-<!-- References -->
-<div class="section">
-<h2>References</h2>
-<p>Available upon request</p>
 </div>
 
-</div>
 </body>
 </html>
-
