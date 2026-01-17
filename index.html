@@ -3,16 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gracious Osho - Portfolio CV</title>
+<title>Gracious Osho - Interactive Portfolio CV</title>
 <style>
-/* ---------- Body & Animated Gradient ---------- */
+/* ---------- Body & Background ---------- */
 body { 
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
     margin:0; 
     padding:0; 
     background: linear-gradient(-45deg, #0f172a, #1e293b, #0f172a, #1e293b); 
     background-size: 400% 400%;
-    animation: gradientBG 20s ease infinite;
+    animation: gradientBG 15s ease infinite;
     color:#e0e0e0;
 }
 @keyframes gradientBG {
@@ -23,15 +23,15 @@ body {
 
 /* ---------- Container ---------- */
 .container { 
-    max-width: 1000px; 
+    max-width: 950px; 
     margin: 40px auto; 
-    padding: 20px; 
+    padding: 30px; 
 }
 
 /* ---------- Header ---------- */
 .header {
     text-align:center; 
-    padding:40px; 
+    padding:50px; 
     border-radius:15px; 
     background: rgba(31, 41, 55, 0.95);
     box-shadow: 0 10px 25px rgba(0,0,0,0.5);
@@ -44,9 +44,7 @@ body {
 .header h1 { 
     margin:10px 0; 
     font-size:3em; 
-    background: linear-gradient(90deg, #8b5cf6, #f472b6, #38bdf8, #facc15, #8b5cf6);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    text-shadow: 1px 1px 8px #f472b6;
 }
 .header p { 
     font-size:1.1em; 
@@ -57,8 +55,20 @@ body {
     color:#f472b6; 
     text-shadow: 1px 1px 5px #38bdf8;
 }
-.header a { color:#38bdf8; text-decoration:none; }
-.header a:hover { color:#f472b6; text-shadow: 0 0 5px #f472b6; }
+
+/* ---------- Rainbow Gradient Text ---------- */
+.rainbow-text {
+  background: linear-gradient(90deg, #ff0047, #ff7300, #ffeb00, #00ff7f, #00bfff, #9b00ff);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: rainbowMove 5s linear infinite;
+}
+@keyframes rainbowMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
 /* ---------- Sections ---------- */
 .section { 
@@ -69,8 +79,8 @@ body {
     transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
 }
 .section:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 25px rgba(0,0,0,0.5);
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.6);
     background: rgba(55, 65, 81, 0.95);
 }
 .section h2 { 
@@ -84,6 +94,17 @@ body {
 ul { list-style:none; padding-left:0; }
 li { margin-bottom:10px; }
 
+/* ---------- Links ---------- */
+a { 
+    color:#38bdf8; 
+    text-decoration:none; 
+    transition: color 0.3s, text-shadow 0.3s;
+}
+a:hover { 
+    color:#f472b6; 
+    text-shadow: 0 0 10px #f472b6;
+}
+
 /* ---------- Skill Bars ---------- */
 .skill-bar { 
     background:#2c2c3a; 
@@ -92,12 +113,12 @@ li { margin-bottom:10px; }
     margin:8px 0; 
 }
 .skill-fill { 
-    height:14px; 
+    height:12px; 
     border-radius:10px; 
     width:0%; 
-    background: linear-gradient(90deg, #8b5cf6, #f472b6, #38bdf8, #facc15, #8b5cf6);
+    background: linear-gradient(90deg, #8b5cf6, #f472b6, #38bdf8, #8b5cf6);
     background-size: 300% 300%;
-    animation: moveGradient 4s linear infinite;
+    animation: moveGradient 3s linear infinite;
 }
 @keyframes moveGradient {
     0%{background-position:0% 50%;}
@@ -105,19 +126,17 @@ li { margin-bottom:10px; }
     100%{background-position:0% 50%;}
 }
 
-/* ---------- Links ---------- */
-a { color:#38bdf8; text-decoration:none; transition: color 0.3s; }
-a:hover { color:#f472b6; text-shadow: 0 0 8px #f472b6; }
-
-/* ---------- Footer ---------- */
+/* ---------- Footer / Contact ---------- */
 .contact p { margin:5px 0; }
 
 </style>
 <script>
 // Animate skill bars on load
 window.onload = function() {
-    const fills = document.querySelectorAll('.skill-fill');
-    fills.forEach(fill => fill.style.width = fill.getAttribute('data-skill'));
+    var fills = document.querySelectorAll('.skill-fill');
+    fills.forEach(function(fill){
+        fill.style.width = fill.getAttribute('data-skill');
+    });
 }
 </script>
 </head>
@@ -127,10 +146,14 @@ window.onload = function() {
 
 <!-- Header -->
 <div class="header">
-    <h1>Gracious Osho</h1>
-    <p>Computer Engineering Student | Web Developer | Cybersecurity Enthusiast | Graphic Designer</p>
+    <h1 class="rainbow-text">Gracious Osho</h1>
+    <p>Computer Engineer | Web & Cybersecurity | Graphic Designer & Video Editor</p>
     <p>Email: <a href="mailto:graciousosho@gmail.com">graciousosho@gmail.com</a> | Phone: +234 704 352 9751 / +233 537 639 529</p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/graciousosho" target="_blank">linkedin.com/in/graciousosho</a> | GitHub: <a href="https://github.com/GraciousOsho" target="_blank">github.com/GraciousOsho</a> | Portfolio: <a href="https://graciousosho.github.io" target="_blank">graciousosho.github.io</a></p>
+    <p>
+        LinkedIn: <a href="https://www.linkedin.com/in/graciousosho" target="_blank" class="rainbow-text">linkedin.com/in/graciousosho</a> | 
+        GitHub: <a href="https://github.com/GraciousOsho" target="_blank" class="rainbow-text">github.com/GraciousOsho</a> | 
+        Portfolio: <a href="https://graciousosho.github.io" target="_blank" class="rainbow-text">graciousosho.github.io</a>
+    </p>
 </div>
 
 <!-- Summary -->
@@ -142,16 +165,14 @@ window.onload = function() {
 <!-- Skills -->
 <div class="section">
 <h2>Skills</h2>
-<p>Technical:</p>
-<p>Python, JavaScript, HTML/CSS, React, SQL</p>
+<p><strong>Technical Skills:</strong></p>
+<p>Python & JavaScript & React & HTML/CSS & SQL</p>
 <div class="skill-bar"><div class="skill-fill" data-skill="90%"></div></div>
-<p>Cybersecurity & Networks:</p>
-<p>Cybersecurity, Network Security, IoT Security, Threat Management</p>
+<p>Cybersecurity & Networks</p>
 <div class="skill-bar"><div class="skill-fill" data-skill="85%"></div></div>
-<p>Multimedia:</p>
-<p>Graphic Design, Adobe Suite (Photoshop), Canva</p>
-<div class="skill-bar"><div class="skill-fill" data-skill="80%"></div></div>
-<p>Professional:</p>
+<p>Multimedia (Graphic Design & Adobe Suite)</p>
+<div class="skill-bar"><div class="skill-fill" data-skill="75%"></div></div>
+<p>Professional Skills</p>
 <ul>
 <li>Project Leadership & Mentorship</li>
 <li>Problem Solving & Analytical Thinking</li>
@@ -163,20 +184,21 @@ window.onload = function() {
 <!-- Experience -->
 <div class="section">
 <h2>Experience</h2>
+
 <div class="section">
 <strong>President – Code-Liners Club</strong>, African Church Grammar School, Abeokuta, Nigeria | Sep 2018 – Sep 2020
 <ul>
-<li>Led a student programming club, organizing workshops and coding sessions focused on Scratch programming.</li>
-<li>Mentored fellow students in coding principles, problem-solving, and project development.</li>
-<li>Encouraged teamwork, logical thinking, and confidence in programming among peers.</li>
-<li><em>Experience-based leadership; no formal certification.</em></li>
+<li>Led a student programming club, organizing workshops and coding sessions for peers.</li>
+<li>Focused on Scratch programming, guiding members through creative games and interactive projects.</li>
+<li>Mentored students in basic coding principles, problem-solving, and project development.</li>
+<li><em>Note: Experience-based leadership; no formal certification.</em></li>
 </ul>
 </div>
 
 <div class="section">
 <strong>IT & Security Intern</strong>, Korangtech IT Security Solutions (Hikvision Partner), Accra, Ghana | May 2024 – Sep 2024
 <ul>
-<li>Installed, configured, and maintained Hikvision Pro security systems, including facial recognition and intruder alarms.</li>
+<li>Installed, configured, and maintained Hikvision Pro security systems including facial recognition and intruder alarms.</li>
 <li>Integrated IoT-based security solutions with networks, power systems, and magnetic locks.</li>
 <li>Performed troubleshooting and ensured secure, reliable performance of interconnected hardware and software systems.</li>
 </ul>
@@ -187,7 +209,7 @@ window.onload = function() {
 <div class="section">
 <h2>Projects</h2>
 <ul>
-<li><strong>IoT Security Simulator (Python)</strong> – 2025–Ongoing: Simulates IoT vulnerabilities, detects attacks, and tests mitigations. <a href="https://github.com/GraciousOsho/IoT-Door-Simulator" target="_blank">GitHub</a></li>
+<li><strong>IoT Security Simulator (Python)</strong> – 2025–Present: Python tool simulating IoT vulnerabilities, detecting attacks, and testing basic mitigations. <a href="https://github.com/GraciousOsho/IoT-Door-Simulator" target="_blank">GitHub</a></li>
 <li><strong>Empowerment Platform – "I Am Who I Am"</strong> – 2022: Advocacy website promoting inclusion and empowerment. Live at <a href="https://site-i-am-who-i-am100.mystrikingly.com/" target="_blank">site-i-am-who-i-am100.mystrikingly.com</a></li>
 </ul>
 </div>
@@ -197,7 +219,7 @@ window.onload = function() {
 <h2>Education</h2>
 <ul>
 <li>BEng Computer Engineering – Accra Institute of Technology, Ghana | Expected May 2027</li>
-<li>A-Level Certification, Mathematics & Physics – African Science Academy, Ghana | Jun 2022</li>
+<li>A-Level Certification (Math & Physics) – African Science Academy, Ghana | Jun 2022</li>
 <li>Secondary Education – African Church Grammar School, Abeokuta, Nigeria | Sep 2015 – Sep 2021 | WAEC/O'Level Certificate</li>
 </ul>
 </div>
@@ -222,12 +244,17 @@ window.onload = function() {
 <ul>
 <li>Delivered digital literacy and STEM mentorship to youth</li>
 <li>Provided web & IT support for community and faith-based organizations</li>
-<li>Volunteered as a Graphic Designer for OneNess Foundation Hub, creating visuals for programs</li>
+<li>Volunteered as a Graphic Designer for OneNess Foundation Hub</li>
 <li>Organized coding workshops and hackathons</li>
 </ul>
 </div>
 
+<!-- References -->
+<div class="section">
+<h2>References</h2>
+<p>Available upon request</p>
 </div>
 
+</div>
 </body>
 </html>
